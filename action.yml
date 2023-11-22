@@ -1,5 +1,5 @@
 # https://help.github.com/ja/articles/metadata-syntax-for-github-actions
-name: Get Diff Action 
+name: Get Diff Action including merge_group (Merge Queue)
 
 description: GitHub actions to get git diff.
 
