@@ -1,0 +1,151 @@
+# https://help.github.com/ja/articles/metadata-syntax-for-github-actions
+name: Get Diff Action including merge_group (Merge Queue)
+
+description: GitHub actions to get git diff.
+
+author: espenalb
+
+inputs:
+  GITHUB_TOKEN:
+    description: Secret GitHub API token used to make API requests.
+    default: ${{ github.token }}
+    required: false
+  DOT:
+    description: Dot.
+    default: '...'
+    required: false
+  BASE:
+    description: base
+    required: false
+  RELATIVE:
+    description: relative filter
+    required: false
+  DIFF_FILTER:
+    description: Diff filter.
+    default: 'AMRC'
+    required: false
+  FORMAT:
+    description: Output format (text or json)
+    default: text
+    required: false
+  ESCAPE_JSON:
+    description: Whether to escape when json format.
+    required: false
+  SEPARATOR:
+    description: Separator of diffs.
+    default: ' '
+    required: false
+  PATTERNS:
+    description: Target file pattern.
+    required: false
+  MINIMATCH_OPTION_NOBRACE:
+    description: https://github.com/isaacs/minimatch#nobrace
+    required: false
+  MINIMATCH_OPTION_NOGLOBSTAR:
+    description: https://github.com/isaacs/minimatch#noglobstar
+    required: false
+  MINIMATCH_OPTION_DOT:
+    description: https://github.com/isaacs/minimatch#dot
+    required: false
+  MINIMATCH_OPTION_NOEXT:
+    description: https://github.com/isaacs/minimatch#noext
+    required: false
+  MINIMATCH_OPTION_NOCASE:
+    description: https://github.com/isaacs/minimatch#nocase
+    required: false
+  MINIMATCH_OPTION_MATCH_BASE:
+    description: https://github.com/isaacs/minimatch#matchbase
+    required: false
+  MINIMATCH_OPTION_NONEGATE:
+    description: https://github.com/isaacs/minimatch#nonegate
+    required: false
+  FILES:
+    description: Specific files.
+    required: false
+  SUMMARY_INCLUDE_FILES:
+    description: Whether the summary contains the result of specific files.
+    required: false
+  ABSOLUTE:
+    description: Get as absolute path.
+    required: false
+  SET_ENV_NAME:
+    description: Env name (diff).
+    default: GIT_DIFF
+    required: false
+  SET_ENV_NAME_FILTERED_DIFF:
+    description: Env name (filtered_diff).
+    default: GIT_DIFF_FILTERED
+    required: false
+  SET_ENV_NAME_MATCHED_FILES:
+    description: Env name (matched_files).
+    default: MATCHED_FILES
+    required: false
+  SET_ENV_NAME_COUNT:
+    description: Env name (count).
+    required: false
+  SET_ENV_NAME_INSERTIONS:
+    description: Env name (insertions).
+    required: false
+  SET_ENV_NAME_DELETIONS:
+    description: Env name (deletions).
+    required: false
+  SET_ENV_NAME_LINES:
+    description: Env name (lines).
+    required: false
+  DIFF_DEFAULT:
+    description: Default value (diff).
+    required: false
+  FILTERED_DIFF_DEFAULT:
+    description: Default value (filtered_diff).
+    required: false
+  MATCHED_FILES_DEFAULT:
+    description: Default value (matched_files).
+    required: false
+  COUNT_DEFAULT:
+    description: Default value (count).
+    default: '0'
+    required: false
+  GET_FILE_DIFF:
+    description: Whether to get file diff.
+    required: false
+  INSERTIONS_DEFAULT:
+    description: Default value (insertions).
+    default: '0'
+    required: false
+  DELETIONS_DEFAULT:
+    description: Default value (deletions).
+    default: '0'
+    required: false
+  LINES_DEFAULT:
+    description: Default value (lines).
+    default: '0'
+    required: false
+  CHECK_ONLY_COMMIT_WHEN_DRAFT:
+    description: Whether to check only commits when drafting.
+    required: false
+  SUPPRESS_ERROR:
+    description: Whether to suppress git diff error.
+    required: false
+
+outputs:
+  diff:
+    description: The results of diff file names.
+  filtered_diff:
+    description: The results of diff file names.
+  count:
+    description: The number of diff files.
+  insertions:
+    description: The number of insertions lines.
+  deletions:
+    description: The number of deletions lines.
+  lines:
+    description: The number of diff lines.
+
+branding:
+  # https://feathericons.com/
+  icon: 'file'
+  color: 'orange'
+
+runs:
+  using: node16
+  main: lib/main.js
