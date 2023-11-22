@@ -1,13 +1,13 @@
 # Get Diff Action
 
-[![CI Status](https://github.com/technote-space/get-diff-action/workflows/CI/badge.svg)](https://github.com/technote-space/get-diff-action/actions)
-[![codecov](https://codecov.io/gh/technote-space/get-diff-action/branch/main/graph/badge.svg)](https://codecov.io/gh/technote-space/get-diff-action)
-[![CodeFactor](https://www.codefactor.io/repository/github/technote-space/get-diff-action/badge)](https://www.codefactor.io/repository/github/technote-space/get-diff-action)
-[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://github.com/technote-space/get-diff-action/blob/main/LICENSE)
+[![CI Status](https://github.com/espenalb/get-diff-action/workflows/CI/badge.svg)](https://github.com/espenalb/get-diff-action/actions)
+[![codecov](https://codecov.io/gh/espenalb/get-diff-action/branch/main/graph/badge.svg)](https://codecov.io/gh/espenalb/get-diff-action)
+[![CodeFactor](https://www.codefactor.io/repository/github/espenalb/get-diff-action/badge)](https://www.codefactor.io/repository/github/espenalb/get-diff-action)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://github.com/espenalb/get-diff-action/blob/main/LICENSE)
 
 *Read this in other languages: [English](README.md), [日本語](README.ja.md).*
 
-これは `git diff` を取得するための GitHub Actions です。  
+これは `git diff` を取得するための GitHub Actions です。
 env または actionsの出力 から差分を得ることができます。
 
 ## Table of Contents
@@ -41,10 +41,10 @@ env または actionsの出力 から差分を得ることができます。
 ## スクリーンショット
 1. Workflow の例
 
-   ![Example workflow](https://raw.githubusercontent.com/technote-space/get-diff-action/images/workflow.png)
+   ![Example workflow](https://raw.githubusercontent.com/espenalb/get-diff-action/images/workflow.png)
 1. スキップ
 
-   ![Skip](https://raw.githubusercontent.com/technote-space/get-diff-action/images/skip.png)
+   ![Skip](https://raw.githubusercontent.com/espenalb/get-diff-action/images/skip.png)
 
 ## 使用方法
 基本的な使い方
@@ -57,7 +57,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: technote-space/get-diff-action@v6
+      - uses: espenalb/get-diff-action@v6
         with:
           PATTERNS: |
             +(src|__tests__)/**/*.ts
@@ -106,7 +106,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: technote-space/get-diff-action@v6
+      - uses: espenalb/get-diff-action@v6
         with:
           PATTERNS: |
             +(src|__tests__)/**/*.ts
@@ -156,7 +156,7 @@ jobs:
    src/docs.md
    yarn.lock
    ```
-   
+
    [${FROM}, ${TO}](#from-to)
 
 1. `PATTERNS` オプションによるフィルタ
@@ -244,7 +244,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: technote-space/get-diff-action@v6
+      - uses: espenalb/get-diff-action@v6
         with:
           CHECK_ONLY_COMMIT_WHEN_DRAFT: true
       # ...
@@ -260,7 +260,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: technote-space/get-diff-action@v6
+      - uses: espenalb/get-diff-action@v6
         with:
           PATTERNS: |
             +(src|__tests__)/**/*.ts
@@ -292,7 +292,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: technote-space/get-diff-action@v6
+      - uses: espenalb/get-diff-action@v6
         with:
           PATTERNS: '*.ts'
           RELATIVE: 'src/abc'
