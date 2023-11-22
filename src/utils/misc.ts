@@ -19,11 +19,11 @@ export const getDiffInfoForPR = (pull: PullRequestParams, context: Context): Dif
   head: context.payload.action === 'closed' ? context.sha : Utils.normalizeRef(context.ref),
 });
 
-export const isDefaultBranch = async(octokit: Octokit, context: Context): Promise<boolean> => await (new ApiHelper(octokit, context)).getDefaultBranch() === Utils.getBranch(context);
+export const isDefaultBranch = async (octokit: Octokit, context: Context): Promise<boolean> => await (new ApiHelper(octokit, context)).getDefaultBranch() === Utils.getBranch(context);
 
 const getBase = (context: Context): string => getInput('BASE') || context.payload.before;
 
-export const getDiffInfoForPush = async(octokit: Octokit, context: Context): Promise<DiffInfo> => {
+export const getDiffInfoForPush = async (octokit: Octokit, context: Context): Promise<DiffInfo> => {
   if (Utils.isTagRef(context)) {
     return { base: '', head: '' };
   }
@@ -73,6 +73,13 @@ export const getDiffInfo = async(octokit: Octokit, context: Context): Promise<Di
       base: context.payload.pull_request.base,
       head: context.payload.pull_request.head,
     }, context);
+  }
+
+  if (context.payload.merge_group) {
+    return {
+      base: context.payload.merge_group.base_sha,
+      head: context.payload.merge_group.head_sha,
+    };
   }
 
   return getDiffInfoForPush(octokit, context);
