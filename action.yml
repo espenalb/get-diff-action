@@ -1,9 +1,9 @@
 # https://help.github.com/ja/articles/metadata-syntax-for-github-actions
-name: Get Diff Action
+name: Get Diff Action 
 
 description: GitHub actions to get git diff.
 
-author: technote-space
+author: espenalb
 
 inputs:
   GITHUB_TOKEN:
